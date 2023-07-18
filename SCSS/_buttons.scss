@@ -1,0 +1,39 @@
+.btn-primary {
+    display: inline-block;
+    height: 4.8rem;
+    cursor: pointer;
+    line-height: 4.8rem;
+    background-color: $brand-yellow;
+    border-radius: 12.2rem;
+    @include poppins (1.6rem, 600, 0, $brand-yellow-secondary);
+    padding: 0 2.7rem;
+    transition: all .3s;
+    &:hover{
+        background-color: #FFDC5C;
+    }
+}
+
+.btn-secondary {
+    display: inline-block;
+    height: 4.1rem;
+    cursor: pointer;
+    line-height: 4.1rem;
+    background-color: rgba(255, 255, 255, 0);
+    align-items: center;
+    border-radius: 12.2rem;
+    border-style: solid;
+    border-width: 1px;
+    border-color: white;
+    @include poppins (1.6rem, 600, 0, white);
+    padding: 0 2.7rem;
+    transition: all .3s;
+    &:hover{
+        background-color: $light-blue;
+        color: white;
+        border-color: $light-blue;
+    }
+}
+
+button {
+    background-color: #ffffff00;
+}

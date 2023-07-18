@@ -1,0 +1,66 @@
+@mixin poppins ($size, $weight, $spacing, $color) {
+    font-family: 'poppins', sans-serif;
+    font-size: $size;
+    font-weight: $weight;
+    letter-spacing: $spacing;
+    color: $color;
+}
+
+@mixin inter ($size, $weight, $spacing, $color) {
+    font-family: 'Inter', sans-serif;
+    font-size: $size;
+    font-weight: $weight;
+    letter-spacing: $spacing;
+    color: $color;
+}
+
+@mixin flex ($direction, $align, $justify) {
+    display: flex;
+    flex-direction: $direction;
+    align-items: $align;
+    justify-content: $justify;
+}
+
+@mixin style-btn ($height, $bg, $colorText) {
+    display: inline-block;
+    height: $height;
+    line-height: $height;
+    background-color: $bg;
+    border-radius: 12.2rem;
+    border-style: solid;
+    border-width: 1px;
+    border-color: $colorText;
+    padding: 0px 1.8rem;
+    font-family: 'poppins',sans-serif;
+    font-weight: 600;
+    font-size: 1.6rem;
+    cursor: pointer;
+    color: $colorText;
+    transition: all .3s;
+    &:hover {
+        background-color: $colorText;
+        color: $light-blue;
+        border-width: 1px;
+        border-color: $colorText;
+    }
+}
+
+@mixin style-btn-2 ($height, $bg, $colorText) {
+    display: inline-block;
+    height: $height;
+    line-height: $height;
+    background-color: $bg;
+    border-radius: 12.2rem;
+    padding: 0px 1.8rem;
+    font-family: 'poppins',sans-serif;
+    font-weight: 600;
+    font-size: 1.6rem;
+    cursor: pointer;
+    color: $colorText;
+}
+
+@mixin responsive($screenWidth) {
+    @media(max-width: $screenWidth) {
+        @content;
+    }
+}

@@ -1,0 +1,229 @@
+header {
+  display: flex;
+  width: 100%;
+  height: 8.8rem;
+  position: fixed;
+  z-index: 200;
+  top: 0;
+  left: 0;
+  border-bottom: 2px solid rgba(255, 255, 255, 0.2);
+  transition: all 0.3s;
+  .container {
+    @include flex(row, center, space-between);
+    .logo {
+      margin-right: 3rem;
+      display: inline-block;
+      width: 132px;
+      height: 30px;
+      background: url("../IMG/logo-white.svg") no-repeat center center;
+      background-size: 100%;
+      transition: background-image 0.3s;
+    }
+    .buttons {
+      @include flex(row, center, space-between);
+      position: relative;
+      ul {
+        @include flex(row, center, space-between);
+        gap: 4.8rem;
+        li {
+          a {
+            color: white;
+            transition: all 0.3s;
+            &:hover {
+              color: $brand-yellow;
+            }
+          }
+        }
+      }
+      button {
+        margin-left: 5.9rem;
+      }
+      .dropdown {
+        position: absolute;
+        top: 40px;
+        left: -150px;
+        width: 100%;
+        max-width: 37.3rem;
+        background: white;
+        border-radius: 6px;
+        padding: 4rem;
+        opacity: 0;
+        pointer-events: none;
+        transition: all 0.3s;
+        transform: translateY(20px);
+        &.active {
+          opacity: 1;
+          pointer-events: all;
+          transform: translateY(0);
+        }
+        &::after {
+          content: "";
+          width: 29.3rem;
+          height: 0.5rem;
+          background: $brand-yellow;
+          border-radius: 12px 12px 0px 0px;
+          position: absolute;
+          bottom: 0;
+        }
+        .item {
+          &:not(:last-child) {
+            margin-bottom: 2.8rem;
+          }
+          strong {
+            font-weight: 600;
+            font-size: 16px;
+            line-height: 19px;
+            color: $grey-400;
+            display: block;
+            margin-bottom: 4px;
+            transition: all 0.3s;
+            cursor: pointer;
+          }
+          p {
+            font-weight: 400;
+            font-size: 14px;
+            line-height: 150%;
+            color: $grey-500;
+          }
+          &:hover {
+            strong {
+              color: $brand-blue;
+            }
+          }
+        }
+      }
+      .btn-mobile {
+        display: none;
+      }
+    }
+  }
+
+  &.fixed-menu {
+    background-color: white;
+    box-shadow: 0 0 30px 0 rgba(0, 0, 0, 0.05);
+    .container {
+      .logo {
+        background-image: url(../IMG/logo-color.svg);
+      }
+      .buttons {
+        .btn-secondary {
+          background-color: white;
+          color: $light-blue;
+          border-color: $light-blue;
+          &:hover {
+            background-color: $light-blue;
+            color: white;
+            border-color: white;
+          }
+        }
+        nav {
+          ul {
+            li {
+              a {
+                color: $grey-400;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
+  @include responsive(1088px) {
+    .container {
+      .logo {
+        margin-right: 2rem;
+        max-width: 10.8rem;
+      }
+      .buttons {
+        ul {
+          gap: 2.8rem;
+        }
+        .btn-secondary {
+          margin-left: 3rem;
+        }
+      }
+    }
+  }
+  @include responsive(916px) {
+    .container {
+      .buttons {
+        nav {
+          ul {
+            display: none;
+          }
+        }
+        .btn-mobile {
+          display: block;
+          padding-right: 2rem;
+        }
+      }
+    }
+  }
+  @include responsive(535px) {
+    .container {
+      .buttons {
+        .btn-secondary {
+          display: none;
+        }
+      }
+    }
+  }
+}
+
+.menu-mobile {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 2022;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s;
+  .overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 0;
+    aside {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 75%;
+      height: 100%;
+      background-color: white;
+      padding: 3rem;
+      transform: translateX(-100%);
+      transition: transform 0.3s;
+      .logo {
+        max-width: 15rem;
+        width: 100%;
+        margin-bottom: 4rem;
+      }
+      ul {
+        li {
+          a {
+            padding: 1.5rem 0;
+            display: block;
+            font-size: 1.8rem;
+            color: $grey-400;
+          }
+        }
+      }
+    }
+  }
+}
+
+.menu-opened {
+  .menu-mobile {
+    pointer-events: all;
+    opacity: 1;
+    aside {
+      transform: translateX(0);
+    }
+  }
+}

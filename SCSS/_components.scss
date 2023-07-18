@@ -1,0 +1,20 @@
+.card-depoimento {
+  background: rgba(241, 240, 245, 0.55);
+  border-radius: 0.8rem;
+  padding: 3.2rem;
+  height: 20.9rem;
+  max-width: 38.4rem;
+  width: 100%;
+  .head {
+    @include flex(row, center, space-between);
+    .strong {
+      @include poppins(1.8rem, 600, -1px, $grey-500);
+      line-height: 112%;
+    }
+  }
+  p {
+    @include inter(1.8rem, 400, 0, $grey-400);
+    line-height: 150%;
+    margin-top: 2.1rem;
+  }
+}
